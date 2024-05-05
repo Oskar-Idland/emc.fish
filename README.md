@@ -51,7 +51,7 @@ Want more features? Please open an [issue][] or send a [pull request][]!
 Install with [Fisher][] (recommended):
 
 ```fish
-fisher install demartini/emc.fish
+fisher install Oskar-Idland/emc.fish
 ```
 
 ## Usage
