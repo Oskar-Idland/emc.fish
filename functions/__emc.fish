@@ -1,7 +1,7 @@
 # emc - Edit My Config.
 # https://github.com/demartini/emc.fish
 
-set -g _emc_version 1.0.0
+set -g _emc_version 2.0.0
 set -g _options_path "$HOME/.config/fish/conf.d/emc_options"
 set -g _pretty_path "~/"(string trim --chars=$HOME $_options_path)s # No idea why the 's' dissapears
 set -g _backup_path "$_options_path"_backup
