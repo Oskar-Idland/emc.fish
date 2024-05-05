@@ -2,8 +2,10 @@
 # https://github.com/demartini/emc.fish
 
 set -g _emc_version 1.0.0
-set -g _options_path "$HOME/.config/fish/conf.d/emc_options.txt"
-set -g _pretty_path "~/"(string trim --chars=$HOME /$_options_path)
+set -g _options_path "$HOME/.config/fish/conf.d/emc_options"
+set -g _pretty_path "~/"(string trim --chars=$HOME $_options_path)s # No idea why the 's' dissapears
+set -g _backup_path "$_options_path"_backup
+set -g _pretty_backup "~/"(string trim --chars=$HOME $_backup_path)
 
 function __emc -d "Edit My Config"
     set options
@@ -29,6 +31,14 @@ function __emc -d "Edit My Config"
 
         case 'list'
             _list_options
+            return
+
+        case 'backup'
+            _create_backup
+            return
+
+        case 'restore'
+            _restore_backup
             return
 
         case ''
@@ -155,6 +165,17 @@ function _list_options
         echo "Config location: ~/$file"\n
     end
 end
+
+function _create_backup
+    cp $_options_path $_backup_path
+    echo "Backup of '$_pretty_path' was created at '$_pretty_backup'"
+end
+
+function _restore_backup
+    cp $_backup_path $_options_path
+    echo "Backup of '$_pretty_backup' was restored as '$_pretty_path'" 
+end
+
 
 function _emc_help
     echo -e "emc - Edit My Config\n"
