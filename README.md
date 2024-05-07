@@ -117,7 +117,7 @@ Using the `add` option, you can add your own config files to `emc`. For example:
 
 ```fish
 ❯ emc add foo .config/bar
-Adding 'foo','.config/bar' to ~/.config/fish/conf.d/emc_options.txt
+Adding 'foo' at '.config/bar' to '~/.config/fish/conf.d/emc_options'
 ```
 The add command assumes the file is in your home directory, so you don't need to add the full path.
 
@@ -140,7 +140,7 @@ The option can be removed with the `remove` option. For example:
 
 ```fish
 ❯ emc remove foo
-Adding 'foo','.config/bar' to ~/.config/fish/conf.d/emc_options.txt
+'foo' was removed from options in '~/.config/fish/conf.d/emc_options'
 ```
 
  
